@@ -1,17 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { projects } from '../data/projects.js';
-
-const featured = projects.slice(0, 2);
 ---
-<Layout title="Amara Chen — Visual designer">
+<Layout title="Work — Amara Chen">
   <div class="wrap">
     <section class="hero">
-      <h1>Amara Chen — visual designer</h1>
-      <p>Identity, editorial, and print systems for independent brands and cultural institutions.</p>
+      <h1>Work</h1>
+      <p>A selection of projects, newest first.</p>
     </section>
 
-    {featured.map((project) => (
+    {projects.map((project) => (
       <figure class="plate">
         <a href={`/work/${project.slug}`}>
           <img src={project.image} alt={project.title} loading="lazy" />

@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects.js';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+<Layout title={`${project.title} — Amara Chen`}>
+  <div class="wrap">
+    <section class="prose">
+      <p class="eyebrow">Plate {project.plate} · {project.year}</p>
+      <h1>{project.title}</h1>
+      <img src={project.image} alt={project.title} loading="lazy" style="width:100%;border-radius:2px;margin-bottom:1.5rem;" />
+      <p>{project.description}</p>
+      <p>
+        Add the full case study here: brief, process, and outcome, with
+        further images dropped in as needed.
+      </p>
+    </section>
+  </div>
+</Layout>
